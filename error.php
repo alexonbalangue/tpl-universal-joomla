@@ -26,67 +26,107 @@ $sitename = $apps->get('sitename');
 ?>
 <!DOCTYPE html>
 <html <?php echo $params->get('ampHTML'); ?> lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
+
 <head>
-	<meta charset="utf-8">
-	<title><?php echo $this->title; ?> <?php echo htmlspecialchars($this->error->getMessage(), ENT_QUOTES, 'UTF-8'); ?></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="robots" content="noindex,nofollow">
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title><?php echo $this->title; ?> <?php echo htmlspecialchars($this->error->getMessage(), ENT_QUOTES, 'UTF-8'); ?></title>
+
 	<?php if ($apps->get('debug_lang', '0') == '1' || $apps->get('debug', '0') == '1') : ?>
 		<link rel="stylesheet" href="<?php echo $this->baseurl; ?>/media/cms/css/debug.css" type="text/css">
 	<?php endif; ?>
-	<link href="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css">
-	<link rel="stylesheet" href="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/assets/production/boostrap3-full.min.css" type="text/css">
-	<!--<if lt IE 9>
-		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<!<endif>-->
-</head>
 
-<body id="page-top" class="index" itemscope itemtype="http://schema.org/WebPage">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+
+    <link href="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/assets/css/style.green.css" rel="stylesheet" id="theme-stylesheet">
+
+    <!-- Responsivity for older IE -->
+    <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<![endif]-->
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
 <jdoc:include type="message" />
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#error"><?php echo $sitename; ?></a>
+    <div id="all">
+        <header>
+            <div id="top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <div class="login">
+                                <a href="https://panel.meetpeopleworld.com/profile/login.html"><i class="fa fa-sign-in"></i> <span class="hidden-xs text-uppercase">Se connecter</span></a>
+                                <a href="https://panel.meetpeopleworld.com/profile/register.html"><i class="fa fa-user"></i> <span class="hidden-xs text-uppercase">S'inscrire</span></a>
+                            </div>
+                        </div>
+                        <div class="col-xs-7">
+                            <div class="social">
+                                <a href="https://www.facebook.com/meetpeopleworld" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
+                                <a href="https://plus.google.com/b/108719968837953676394/+Meetpeopleworld-com" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
+                                <a href="https://twitter.com/meetpeopleworld" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
+                                <a href="https://www.meetpeopleworld.com/contact/team.html" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </nav>
-			<header>
-				<div class="container">
-					<div class="row">
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<img itemprop="primaryImageOfPage" src="<?php echo $this->baseurl.'/templates/universal/assets/img/profile.png'; ?>" alt="demo" class="img-responsive img-circle">
-									<meta itemprop="image" content="<?php echo $this->baseurl.'/templates/universal/assets/img/profile.png'; ?>">
-							<div class="intro-text">
-								<span class="name" itemprop="author">
-									<?php echo $sitename; ?>							</span>
-									
-								<meta itemprop="name" content="<?php echo $sitename; ?>">
-								<hr class="star-light" />
-																	<span class="skills">
-										<?php echo $sitename; ?> <?php echo htmlspecialchars($this->error->getMessage(), ENT_QUOTES, 'UTF-8'); ?>						</span>
-									<meta itemprop="description" content="<?php echo $sitename; ?> <?php echo htmlspecialchars($this->error->getMessage(), ENT_QUOTES, 'UTF-8'); ?>">
-															</div>								
+
+            <div class="navbar-affixed-top" data-spy="affix" data-offset-top="200">
+
+                <div class="navbar navbar-default yamm" role="navigation" id="navbar">
+
+                    <div class="container">
+                        <div class="navbar-header">
+
+                            <a class="navbar-brand home" href="index.html">
+                                <img src="<?php echo $this->baseurl.'/templates/universal/assets/images/logo.png'; ?>" width="187" height="42" alt="<?php echo $sitename; ?>" class="hidden-xs hidden-sm">
+                                <img src="<?php echo $this->baseurl.'/templates/universal/assets/images/logo.png'; ?>" width="110" height="47" alt="<?php echo $sitename; ?>" class="visible-xs visible-sm"><span class="sr-only"><?php echo $sitename; ?></span>
+
+                            </a>
+							<meta itemprop="image" content="<?php echo $this->baseurl.'/templates/universal/assets/images/logo.png'; ?>">
+							<meta itemprop="name" content="<?php echo $sitename; ?>">
+							<meta itemprop="description" content="<?php echo $sitename; ?> <?php echo htmlspecialchars($this->error->getMessage(), ENT_QUOTES, 'UTF-8'); ?>">
+                            <div class="navbar-buttons">
+                                <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <i class="fa fa-align-justify"></i>
+                                </button>
+                            </div>
+                        </div>
+						<div class="navbar-collapse collapse" id="navigation"> 
+							<ul class="nav navbar-nav navbar-right"> 
+								<li class="active"> <a href="javascript: void(0)"><i class="fa fa-home fa-2x"></i></a> </li>
+								<li> <a href="https://docs.meetpeopleworld.com/">Docs</a> </li>
+								<li> <a href="https://jobs.meetpeopleworld.com/">Jobs</a> </li>
+								<li> <a href="https://media.meetpeopleworld.com/">Média</a> </li>
+								<li> <a href="https://booking.meetpeopleworld.com/">Réserver</a> </li>
+								<li> <a href="https://sites.meetpeopleworld.com/">Sites</a> </li>
+								<li> <a href="https://marketplace.meetpeopleworld.com/">Marché</a> </li>
+								<li> <a href="https://social.meetpeopleworld.com/">RDV</a> </li>
+							</ul> 
 						</div>
-					</div>
-				</div>
-			</header>
-    <section id="error" class="failed">
-        <div class="container">
-            <div class="row">
-				<div class="col-xs-12 co-md-12 col-lg-12">
-					<h1 class="page-header"><?php echo JText::_('JERROR_LAYOUT_PAGE_NOT_FOUND'); ?></h1>
-					  <hr class="star-primary">
-				</div>
-				</div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </header>
+
+        <div id="content">
+            <div class="container">
+                <div class="col-sm-6 col-sm-offset-3" id="error-page">
+                    <div class="box">
+                        <h1><?php echo JText::_('JERROR_LAYOUT_PAGE_NOT_FOUND'); ?></h1>
+                        <div class="container-fluid">
 				<div class="row">
 				<div class="col-xs-12 co-md-12 col-lg-12">
 					<div class="well">
@@ -108,13 +148,13 @@ $sitename = $apps->get('sitename');
 									<?php echo $docs->getBuffer('module', 'search'); ?>
 								<?php endif; ?>
 								<p><?php echo JText::_('JERROR_LAYOUT_GO_TO_THE_HOME_PAGE'); ?></p>
-								<p><a href="<?php echo $this->baseurl; ?>/index.php" class="btn"><span class="fa fa-home fa-4x"></span> <?php echo JText::_('JERROR_LAYOUT_HOME_PAGE'); ?></a></p>
+								<p class="buttons"><a href="<?php echo $this->baseurl; ?>" class="btn btn-template-main"><i class="fa fa-home"></i> <?php echo JText::_('JERROR_LAYOUT_HOME_PAGE'); ?></a>
 							</div>
 						</div>
 						<hr>
 						<p><?php echo JText::_('JERROR_LAYOUT_PLEASE_CONTACT_THE_SYSTEM_ADMINISTRATOR'); ?></p>
 						<blockquote>
-							<span class="label label-inverse"><?php echo $this->error->getCode(); ?></span> <?php echo htmlspecialchars($this->error->getMessage(), ENT_QUOTES, 'UTF-8');?>
+							<span class="label label-danger"><?php echo $this->error->getCode(); ?></span> <?php echo htmlspecialchars($this->error->getMessage(), ENT_QUOTES, 'UTF-8');?>
 						</blockquote>
 						<?php if ($this->debug) : ?>
 							<?php echo $this->renderBacktrace(); ?>
@@ -122,36 +162,73 @@ $sitename = $apps->get('sitename');
 					</div>
 				</div>
             </div>
-        </div>
-    </section>
+						</div>
 
-    <footer class="text-center">
-        <div class="footer-below">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-						<i class="fa fa-mobile fa-5x"></i> <i class="fa fa-tablet fa-5x"></i> <i class="fa fa-laptop fa-5x"></i> <i class="fa fa-desktop fa-5x"></i> <br>
-					Nous sommes 100% amis avec les moteur de recherches et multiplateformes avec n'importe quelles choix de votre navigateur internet.<br>
-                    <span itemprop="copyrightHolder">&copy; <a href="<?php echo $this->baseurl; ?>"><?php echo $sitename; ?></a></span> - <span itemprop="copyrightYear"><?php echo date('Y'); ?></span> - 
-					Conception by <a href="//www.AlexonBalangue.me" target="_top">www.AlexonBalangue.me</a> - Webdesigner by <a href="//www.startbootstrap.com" target="_top">www.StartBootstrap.com</a>
-					<br />Toute reproduction interdite sans l'autorisation de l'auteur. 
-							</div>
+                        
+                        </p>
                     </div>
+
+
                 </div>
             </div>
         </div>
-    </footer>
+<div id="get-it"> 
+	<div class="container"> 
+		<div class="col-md-8 col-sm-12"> 
+			<h3>On a tous des problèmes, utiliser notre plateforme peut vous aidez!</h3> 
+		</div>
+		<div class="col-md-4 col-sm-12"> 
+			<a href="https://panel.meetpeopleworld.com/" class="btn btn-template-transparent-primary">S'inscrire</a> 
+		</div>
+	</div>
+</div>
 
-    <div class="scroll-top page-scroll visible-xs visble-sm">
-        <a class="btn btn-primary" href="#page-top">
-            <i class="fa fa-chevron-up"></i>
-        </a>
+<footer id="footer"> 
+	<div class="container"> 
+		<div class="col-md-3 col-sm-6"> 
+			<h4>Être informer</h4> 
+			<p><a href="https://www.meetpeopleworld.com/information/abouts.html">A propos de nous</a> - <a href="https://www.meetpeopleworld.com/information/notice-legal.html">Mention Légale</a> - <a href="https://www.alexonbalangue.me/information/roadmap.html" target="_blank">Feuille de route</a> - <a href="https://www.meetpeopleworld.com/information/terms-of-use.html">Condition Général d'Utilisation</a> - <a href="https://www.meetpeopleworld.com/information/terms-sell.html">Condition Général de Ventes</a> - <a href="https://www.meetpeopleworld.com/information/privacy-policy.html">Politique de confidentialité</a></p><hr class="hidden-md hidden-lg hidden-sm"> 
+		</div>
+		<div class="col-md-3 col-sm-6"> 
+		<h4>Nos services</h4> 
+		<p><a href="https://www.meetpeopleworld.com/information.html">Information</a> - <a href="https://docs.meetpeopleworld.com/">Documentation</a> - <a href="https://www.alexonbalangue.me/portfolio/meetpeopleworld.html">Applications &amp; Logiciels</a> - <a href="https://search.meetpeopleworld.com/">Moteur de recherche</a> - <a href="#" onclick="window.external.AddSearchProvider('https://www.meetpeopleworld.com/opensearch.xml');">Ajouter OpenSearch</a></p><hr class="hidden-md hidden-lg hidden-sm"> </div>
+		<div class="col-md-3 col-sm-6"> 
+		<h4>Site maintenue</h4> 
+		<p><i class="fa fa-html5 fa-4x"></i> <i class="fa fa-css3 fa-4x"></i></p><hr class="hidden-md hidden-lg hidden-sm"> 
+		</div>
+		<div class="col-md-3 col-sm-6"> 
+		<h4>Actualités</h4> 
+		<p><a href="#"><i class="fa fa-sitemap fa-4x"></i></a> <a href="#"><i class="fa fa-rss fa-4x"></i></a></p><hr class="hidden-md hidden-lg hidden-sm"> 
+		</div>
+	</div>
+</footer>
+
+        <div id="copyright">
+            <div class="container">
+                <div class="col-md-12">
+						<p class="text-center"><i class="fa fa-mobile fa-5x"></i> <i class="fa fa-tablet fa-5x"></i> <i class="fa fa-laptop fa-5x"></i> <i class="fa fa-desktop fa-5x"></i> <br>
+					Nous sommes 100% amis avec les moteur de recherches et multiplateformes avec n'importe quelles choix de votre navigateur internet.<p>
+                    <p class="pull-left"><span itemprop="copyrightHolder">&copy; <a href="<?php echo $this->baseurl; ?>"><?php echo $sitename; ?></a></span> - <span itemprop="copyrightYear"><?php echo date('Y'); ?></span> </p><p class="pull-right">
+					Conception by <a href="//www.AlexonBalangue.me" target="_top">www.AlexonBalangue.me</a> <br>Webdesigner by <a href="//www.bootstrapious.com" target="_top">www.Bootstrapious.com</a>
+					<br />Toute reproduction interdite sans l'autorisation de l'auteur. </p>
+				
+                </div>
+            </div>
+        </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-		<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script> 
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 	
-		<script src="<?php echo $this->baseurl; ?>/assets/production/boostrap3-full.min.js"></script> 	
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax-min.js"></script>
+    <script src="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/assets/js/front.js"></script>
 
-	<?php echo $docs->getBuffer('modules', 'debug', array('style' => 'none')); ?>
+    <?php echo $docs->getBuffer('modules', 'debug', array('style' => 'none')); ?>
+
+
+
 </body>
+
 </html>
