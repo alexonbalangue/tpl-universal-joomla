@@ -87,11 +87,11 @@ $sitename = $apps->get('sitename');
                         <div class="navbar-header">
 
                             <a class="navbar-brand home" href="index.html">
-                                <img src="<?php echo $this->baseurl.'/templates/universal/assets/images/logo.png'; ?>" width="187" height="42" alt="<?php echo $sitename; ?>" class="hidden-xs hidden-sm">
-                                <img src="<?php echo $this->baseurl.'/templates/universal/assets/images/logo.png'; ?>" width="110" height="47" alt="<?php echo $sitename; ?>" class="visible-xs visible-sm"><span class="sr-only"><?php echo $sitename; ?></span>
+                                <img src="<?php echo $this->baseurl.'/templates/'.$this->template.'/assets/images/logo.png'; ?>" width="187" height="42" alt="<?php echo $sitename; ?>" class="hidden-xs hidden-sm">
+                                <img src="<?php echo $this->baseurl.'/templates/'.$this->template.'/assets/images/logo.png'; ?>" width="110" height="47" alt="<?php echo $sitename; ?>" class="visible-xs visible-sm"><span class="sr-only"><?php echo $sitename; ?></span>
 
                             </a>
-							<meta itemprop="image" content="<?php echo $this->baseurl.'/templates/universal/assets/images/logo.png'; ?>">
+							<meta itemprop="image" content="<?php echo $this->baseurl.'/templates/'.$this->template.'/assets/images/logo.png'; ?>">
 							<meta itemprop="name" content="<?php echo $sitename; ?>">
 							<meta itemprop="description" content="<?php echo $sitename; ?> <?php echo htmlspecialchars($this->error->getMessage(), ENT_QUOTES, 'UTF-8'); ?>">
                             <div class="navbar-buttons">

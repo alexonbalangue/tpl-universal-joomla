@@ -32,7 +32,7 @@ require_once JPATH_ADMINISTRATOR . '/components/com_users/helpers/users.php';
 $twofactormethods = UsersHelper::getTwoFactorMethods();
 ?>
 <!DOCTYPE html>
-<html <?php echo $params->get('ampHTML'); ?> lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
+<html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
 [head]
 	[meta charset="utf-8" /]
 	[title]<?php echo $sitename.' - '.JText::_('JOFFLINE_MESSAGE'); ?>[/title]
@@ -85,8 +85,8 @@ $twofactormethods = UsersHelper::getTwoFactorMethods();
                         [begins tags="div" class="navbar-header" /] 
 
                             <a class="navbar-brand home" href="index.html">
-                                <img src="assets/images/logo.png" width="187" height="42" alt="<?php echo $sitename; ?>" class="hidden-xs hidden-sm">
-                                <img src="assets/images/logo.png" width="110" height="47" alt="<?php echo $sitename; ?>" class="visible-xs visible-sm"><span class="sr-only"><?php echo $sitename; ?></span>
+                                <img src="<?php echo $this->baseurl.'/templates/'.$this->template.'/assets/images/logo.png'; ?>" width="187" height="42" alt="<?php echo $sitename; ?>" class="hidden-xs hidden-sm">
+                                <img src="<?php echo $this->baseurl.'/templates/'.$this->template.'/assets/images/logo.png'; ?>" width="110" height="47" alt="<?php echo $sitename; ?>" class="visible-xs visible-sm"><span class="sr-only"><?php echo $sitename; ?></span>
                             </a>
                             [begins tags="div" class="navbar-buttons" /] 
                                 <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
@@ -155,15 +155,14 @@ $twofactormethods = UsersHelper::getTwoFactorMethods();
                     [begins tags="div" class="box" /] 
 
                         <p class="text-center">
-                            <a href="<?php echo $this->baseurl; ?>">
                                 <?php if ($apps->get('offline_image') && file_exists($apps->get('offline_image'))) : ?>
-							<img itemprop="primaryImageOfPage" src="<?php echo $this->baseurl.'/templates/'.$this->template.'/assets/images/logo.png'; ?>" alt="demo" class="img-responsive">
-									<meta itemprop="image" content="<?php echo $this->baseurl.'/templates/'.$this->template.'/assets/images/logo.png'; ?>">
+							<img width="350" height="200" itemprop="primaryImageOfPage" src="<?php echo $apps->get('offline_image'); ?>" alt="<?php echo $sitename.' - '.JText::_('JOFFLINE_MESSAGE'); ?>" class="img-responsive">
+									<meta itemprop="image" content="<?php echo $apps->get('offline_image'); ?>">
 					<?php endif; ?>
-                            </a>
                         </p>
 
-                        <h3><?php echo htmlspecialchars($apps->get('sitename')); ?></h3>
+                        <h3><?php echo $sitename; ?></h3>
+                        <h4 class="text-muted"><?php echo JText::_('JOFFLINE_MESSAGE'); ?></h4>
                         
 
                         <?php if ($apps->get('display_offline_message', 1) == 1 && str_replace(' ', '', $apps->get('offline_message')) != '') : ?>
@@ -198,7 +197,7 @@ $twofactormethods = UsersHelper::getTwoFactorMethods();
 	[ends tags="div" /] 
 [ends tags="div" /] 
 
-[footer id="footer" /]  
+ [begins tags="footer" id="footer" /] 
 	[begins tags="div" class="container" /]  
 		[begins tags="div" class="col-md-3 col-sm-6" /] 
 			<h4>Être informer</h4> 
@@ -207,25 +206,25 @@ $twofactormethods = UsersHelper::getTwoFactorMethods();
 		[begins tags="div" class="col-md-3 col-sm-6" /]  
 		<h4>Nos services</h4> 
 		<p><a href="https://www.meetpeopleworld.com/information.html">Information</a> - <a href="https://docs.meetpeopleworld.com/">Documentation</a> - <a href="https://www.alexonbalangue.me/portfolio/meetpeopleworld.html">Applications &amp; Logiciels</a> - <a href="https://search.meetpeopleworld.com/">Moteur de recherche</a> - <a href="#" onclick="window.external.AddSearchProvider('https://www.meetpeopleworld.com/opensearch.xml');">Ajouter OpenSearch</a></p><hr class="hidden-md hidden-lg hidden-sm"> [ends tags="div" /] 
-		[begins tags="div" class="col-md-3 col-sm-6"> 
+		[begins tags="div" class="col-md-3 col-sm-6" /] 
 		<h4>Site maintenue</h4> 
 		<p><i class="fa fa-html5 fa-4x"></i> <i class="fa fa-css3 fa-4x"></i></p><hr class="hidden-md hidden-lg hidden-sm"> 
 		[ends tags="div" /] 
-		[begins tags="div" class="col-md-3 col-sm-6"> 
+		[begins tags="div" class="col-md-3 col-sm-6" /] 
 		<h4>Actualités</h4> 
 		<p><a href="#"><i class="fa fa-sitemap fa-4x"></i></a> <a href="#"><i class="fa fa-rss fa-4x"></i></a></p><hr class="hidden-md hidden-lg hidden-sm"> 
 		[ends tags="div" /] 
 	[ends tags="div" /] 
-[/footer]
+[ends tags="footer" /] 
 
         [begins tags="div" id="copyright" /] 
             [begins tags="div" class="container" /] 
                 [begins tags="div" class="col-md-12" /] 
 						<p class="text-center"><i class="fa fa-mobile fa-5x"></i> <i class="fa fa-tablet fa-5x"></i> <i class="fa fa-laptop fa-5x"></i> <i class="fa fa-desktop fa-5x"></i> <br>
 					Nous sommes 100% amis avec les moteur de recherches et multiplateformes avec n'importe quelles choix de votre navigateur internet.<p>
-                    <p class="pull-left"><span itemprop="copyrightHolder">&copy; <a href="<?php echo $this->baseurl; ?>"><?php echo $sitename; ?></a></span> - <span itemprop="copyrightYear"><?php echo date('Y'); ?></span> </p><p class="pull-right">
-					Conception by <a href="//www.AlexonBalangue.me" target="_top">www.AlexonBalangue.me</a> <br>Webdesigner by <a href="//www.bootstrapious.com" target="_top">www.Bootstrapious.com</a>
-					<br />Toute reproduction interdite sans l'autorisation de l'auteur. </p>
+                    <p class="pull-left"><span itemprop="copyrightHolder">&copy; <a href="<?php echo $this->baseurl; ?>"><?php echo $sitename; ?></a></span> - <span itemprop="copyrightYear"><?php echo date('Y'); ?></span> Toute reproduction interdite sans l'autorisation de l'auteur.</p>
+					<p class="pull-right">
+					Conception by <a href="//www.AlexonBalangue.me" target="_top">www.AlexonBalangue.me</a> | Webdesigner by <a href="//www.bootstrapious.com" target="_top">www.Bootstrapious.com</a> </p>
 				
                 [ends tags="div" /] 
             [ends tags="div" /] 
