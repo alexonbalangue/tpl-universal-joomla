@@ -1,28 +1,35 @@
 <?php
 /**
-; * @package     Joomla.frontend.Site
-; * @subpackage  Templates.cvstart
-; *
-; * @copyright   Copyright (C) 2012 - 2014. All rights reserved.
-; * @author   StartBoostrap, Boostrap, FontAwesome, Converter by Alexon Balangue
-; * @license     Free licences
+ * @package     Joomla.Site
+ * @subpackage  mod_menu
+ *
+ * @copyright   Copyright (C) 2005 - 2016 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('_JEXEC') or die;
 
-// Note. It is important to remove spaces between elements.
+$id = '';
+
+if (($tagId = $params->get('tag_id', '')))
+{
+	$id = ' id="' . $tagId . '"';
+}
+
+// The menu class is deprecated. Use nav instead
 ?>
-<?php // The menu class is deprecated. Use nav instead. ?>
-<ul class="nav navbar-nav navbar-right">
-     <li class="hidden">
-         <a href="#page-top"></a>
-     </li>
-<?php
-foreach ($list as $i => &$item)
+<ul class="nav navbar-nav<?php echo $class_sfx; ?>"<?php echo $id; ?>>
+<?php foreach ($list as $i => &$item)
 {
 	$class = 'item-' . $item->id;
 
-	if (($item->id == $active_id) OR ($item->type == 'alias' AND $item->params->get('aliasoptions') == $active_id))
+	if ($item->id == $default_id)
+	{
+		$class .= '';
+	}
+
+
+	if (($item->id == $active_id) || ($item->type == 'alias' && $item->params->get('aliasoptions') == $active_id))
 	{
 		$class .= ' current';
 	}
@@ -41,7 +48,7 @@ foreach ($list as $i => &$item)
 		}
 		elseif (in_array($aliasToId, $path))
 		{
-			$class .= ' alias-parent-active';
+			$class .= ' dropdown';
 		}
 	}
 
@@ -60,19 +67,13 @@ foreach ($list as $i => &$item)
 		$class .= ' parent';
 	}
 
-	if (!empty($class))
-	{
-		$class = ' class="' . trim($class) . '"';
-	}
+	echo '<li class="' . $class . '">';
 
-	echo '<li class="page-scroll">';
-
-	// Render the menu item.
 	switch ($item->type) :
 		case 'separator':
-		case 'url':
 		case 'component':
 		case 'heading':
+		case 'url':
 			require JModuleHelper::getLayoutPath('mod_menu', 'default_' . $item->type);
 			break;
 
@@ -84,17 +85,17 @@ foreach ($list as $i => &$item)
 	// The next item is deeper.
 	if ($item->deeper)
 	{
-		echo '<ul class="nav navbar-nav navbar-right">';
+		echo '<ul class="dropdown-menu">';
 	}
+	// The next item is shallower.
 	elseif ($item->shallower)
 	{
-		// The next item is shallower.
 		echo '</li>';
 		echo str_repeat('</ul></li>', $item->level_diff);
 	}
+	// The next item is on the same level.
 	else
 	{
-		// The next item is on the same level.
 		echo '</li>';
 	}
 }
