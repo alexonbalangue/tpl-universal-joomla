@@ -40,7 +40,7 @@ function modChrome_bswell($module, &$params, &$attribs)
 }
 
 /******************BOOSTRAP 3***********************/
-function modChrome_bs3withtitlehead($module, &$params, &$attribs)
+function modChrome_bs3bodycolorgray($module, &$params, &$attribs)
 {
 	$moduleTag     = $params->get('module_tag', 'div');
 	$bootstrapSize = (int) $params->get('bootstrap_size', 0);
@@ -50,7 +50,9 @@ function modChrome_bs3withtitlehead($module, &$params, &$attribs)
 
 	if ($module->content)
 	{
-		echo '<' . $moduleTag . ' class="' . $moduleClass . '">';
+		echo '<' . $moduleTag . ' class="bar background-gray no-mb padding-big text-center-sm"><div class="container">
+                <div class="row">
+                    <div class="' . $moduleClass . '">';
 
 			if ($module->showtitle)
 			{
@@ -58,10 +60,38 @@ function modChrome_bs3withtitlehead($module, &$params, &$attribs)
 			}
 
 			echo $module->content;
-		echo '</' . $moduleTag . '>';
+					
+				echo '</div>
+			</div>
+		</' . $moduleTag . '>';
 	}
 }
-function modChrome_bs3frontendshowNocolor($module, &$params, &$attribs)
+function modChrome_bs3bodycolorwhite($module, &$params, &$attribs)
+{
+	$moduleTag     = $params->get('module_tag', 'div');
+	$bootstrapSize = (int) $params->get('bootstrap_size', 0);
+	$moduleClass   = $bootstrapSize != 0 ? 'col-xs-12 col-sm-12 col-md-' . $bootstrapSize . ' col-lg-' . $bootstrapSize : '';
+	$headerTag     = htmlspecialchars($params->get('header_tag', 'h3'));
+	$headerClass   = htmlspecialchars($params->get('header_class', 'text-center'));
+	
+	if ($module->content)
+	{
+		echo '<' . $moduleTag . ' class="bar no-mb color-white padding-big text-center-sm>
+			<div class="container">
+                <div class="row">
+                    <div class="' . $moduleClass . '">';
+						if ($module->showtitle)
+						{
+							echo '<' . $headerTag . ' class="' . $headerClass . '">' . $module->title . '</' . $headerTag . '>';
+						}
+						echo $module->content;					
+				echo '</div>
+				</div>
+			</div>
+		</' . $moduleTag . '>';
+	}
+}
+function modChrome_bs3bodypentagone($module, &$params, &$attribs)
 {
 	$moduleTag     = $params->get('module_tag', 'div');
 	$bootstrapSize = (int) $params->get('bootstrap_size', 0);
@@ -71,18 +101,27 @@ function modChrome_bs3frontendshowNocolor($module, &$params, &$attribs)
 
 	if ($module->content)
 	{
-		echo '<' . $moduleTag . ' class="' . $moduleClass . '">';
+		echo '<' . $moduleTag . ' class="bar background-pentagon no-mb"><div class="container">
+                <div class="row">
+                    <div class="' . $moduleClass . '">';
 
-			if ($module->showtitle)
-			{
-				echo '<' . $headerTag . ' class="' . $headerClass . '" itemprop="alternativeHealine">' . $module->title . '</' . $headerTag . '><hr class="smallers-color" />';
-			}
+					if ($module->showtitle)
+					{
+						echo '<div class="heading' . $headerClass . '">
+								<' . $headerTag . '>
+									' . $module->title . '
+								</' . $headerTag . '>
+							</div>';
+					}
 
-			echo '<div class="row">'.$module->content.'</div>';
-		echo '</' . $moduleTag . '>';
+					echo $module->content;
+					
+				echo '</div>
+			</div>
+		</' . $moduleTag . '>';
 	}
 }
-function modChrome_bs3frontendshowYescolor($module, &$params, &$attribs)
+function modChrome_bs3bodyfixedimages($module, &$params, &$attribs)
 {
 	$moduleTag     = $params->get('module_tag', 'div');
 	$bootstrapSize = (int) $params->get('bootstrap_size', 0);
@@ -92,17 +131,49 @@ function modChrome_bs3frontendshowYescolor($module, &$params, &$attribs)
 
 	if ($module->content)
 	{
-		echo '<' . $moduleTag . ' class="' . $moduleClass . '">';
+		echo '<' . $moduleTag . ' class="bar background-image-fixed-2 no-mb color-white text-center">
+			<div class="dark-mask"></div>
+			<div class="container">
+                <div class="row">
+                    <div class="' . $moduleClass . '">';
 
 			if ($module->showtitle)
 			{
-				echo '<' . $headerTag . ' class="' . $headerClass . '" itemprop="alternativeHealine">' . $module->title . '</' . $headerTag . '><hr class="smallers" />';
+				echo '<' . $headerTag . ' class="' . $headerClass . '">' . $module->title . '</' . $headerTag . '>';
 			}
 
-			echo '<div class="row">'.$module->content.'</div>';
+			echo $module->content;
+					
+				echo '</div>
+			</div>
+		</' . $moduleTag . '>';
+	}
+}
+
+function modChrome_bs3sidebar($module, &$params, &$attribs)
+{
+	$moduleTag     = $params->get('module_tag', 'div');
+	//$bootstrapSize = (int) $params->get('bootstrap_size', 0);
+	//$moduleClass   = $bootstrapSize != 0 ? 'col-xs-12 col-sm-6 col-md-' . $bootstrapSize . ' col-lg-' . $bootstrapSize : '';
+	$headerTag     = htmlspecialchars($params->get('header_tag', 'h3'));
+	//$headerClass   = htmlspecialchars($params->get('header_class', 'text-center'));
+
+	if ($module->content)
+	{
+		echo '<' . $moduleTag . ' class="panel panel-default sidebar-menu">';
+
+			if ($module->showtitle)
+			{
+				echo '<div class="panel-heading">
+				<' . $headerTag . ' class="panel-title clearfix">' . $module->title . '</' . $headerTag . '>
+				</div>';
+			}
+
+			echo '<div class="panel-body">'.$module->content.'</div>';
 		echo '</' . $moduleTag . '>';
 	}
 }
+
 function modChrome_bs3FooterShow($module, &$params, &$attribs)
 {
 	$moduleTag     = $params->get('module_tag', 'div');
@@ -121,264 +192,7 @@ function modChrome_bs3FooterShow($module, &$params, &$attribs)
 			}
 
 			echo $module->content;
-		echo '</' . $moduleTag . '>';
-	}
-}
-
-/******************BOOSTRAP 2***********************/
-function modChrome_bs2withtitlehead($module, &$params, &$attribs)
-{
-	$moduleTag     = $params->get('module_tag', 'div');
-	$bootstrapSize = (int) $params->get('bootstrap_size', 0);
-	$moduleClass   = $bootstrapSize != 0 ? 'span' . $bootstrapSize : '';
-	$headerTag     = htmlspecialchars($params->get('header_tag', 'h3'));
-	$headerClass   = htmlspecialchars($params->get('header_class', 'text-center'));
-
-	if ($module->content)
-	{
-		echo '<' . $moduleTag . ' class="' . $moduleClass . '">';
-
-			if ($module->showtitle)
-			{
-				echo '<' . $headerTag . ' class="' . $headerClass . '">' . $module->title . '</' . $headerTag . '>';
-			}
-
-			echo $module->content;
-		echo '</' . $moduleTag . '>';
-	}
-}
-function modChrome_bs2frontendshowNocolor($module, &$params, &$attribs)
-{
-	$moduleTag     = $params->get('module_tag', 'div');
-	$bootstrapSize = (int) $params->get('bootstrap_size', 0);
-	$moduleClass   = $bootstrapSize != 0 ? 'span' . $bootstrapSize : '';
-	$headerTag     = htmlspecialchars($params->get('header_tag', 'h3'));
-	$headerClass   = htmlspecialchars($params->get('header_class', 'text-center'));
-
-	if ($module->content)
-	{
-		echo '<' . $moduleTag . ' class="' . $moduleClass . '">';
-
-			if ($module->showtitle)
-			{
-				echo '<' . $headerTag . ' class="' . $headerClass . '" itemprop="alternativeHealine">' . $module->title . '</' . $headerTag . '><hr class="smallers-color" />';
-			}
-
-			echo '<div class="row">'.$module->content.'</div>';
-		echo '</' . $moduleTag . '>';
-	}
-}
-function modChrome_bs2frontendshowYescolor($module, &$params, &$attribs)
-{
-	$moduleTag     = $params->get('module_tag', 'div');
-	$bootstrapSize = (int) $params->get('bootstrap_size', 0);
-	$moduleClass   = $bootstrapSize != 0 ? 'span' . $bootstrapSize : '';
-	$headerTag     = htmlspecialchars($params->get('header_tag', 'h3'));
-	$headerClass   = htmlspecialchars($params->get('header_class', 'text-center'));
-
-	if ($module->content)
-	{
-		echo '<' . $moduleTag . ' class="' . $moduleClass . '">';
-
-			if ($module->showtitle)
-			{
-				echo '<' . $headerTag . ' class="' . $headerClass . '" itemprop="alternativeHealine">' . $module->title . '</' . $headerTag . '><hr class="smallers" />';
-			}
-
-			echo '<div class="row">'.$module->content.'</div>';
-		echo '</' . $moduleTag . '>';
-	}
-}
-function modChrome_bs2FooterShow($module, &$params, &$attribs)
-{
-	$moduleTag     = $params->get('module_tag', 'div');
-	$bootstrapSize = (int) $params->get('bootstrap_size', 0);
-	$moduleClass   = $bootstrapSize != 0 ? 'span' . $bootstrapSize : '';
-	$headerTag     = htmlspecialchars($params->get('header_tag', 'h3'));
-	$headerClass   = htmlspecialchars($params->get('header_class', 'text-center'));
-
-	if ($module->content)
-	{
-		echo '<' . $moduleTag . ' class="' . $moduleClass . '">';
-
-			if ($module->showtitle)
-			{
-				echo '<' . $headerTag . ' class="' . $headerClass . '">' . $module->title . '</' . $headerTag . '>';
-			}
-
-			echo $module->content;
-		echo '</' . $moduleTag . '>';
-	}
-}
-
-/******************Foundation***********************/
-function modChrome_fi6withtitlehead($module, &$params, &$attribs)
-{
-	$moduleTag     = $params->get('module_tag', 'div');
-	$bootstrapSize = (int) $params->get('bootstrap_size', 0);
-	$moduleClass   = $bootstrapSize != 0 ? 'small-12 large-' . $bootstrapSize.' columns' : '';
-	$headerTag     = htmlspecialchars($params->get('header_tag', 'h3'));
-	$headerClass   = htmlspecialchars($params->get('header_class', 'text-center'));
-
-	if ($module->content)
-	{
-		echo '<' . $moduleTag . ' class="' . $moduleClass . '">';
-
-			if ($module->showtitle)
-			{
-				echo '<' . $headerTag . ' class="' . $headerClass . '">' . $module->title . '</' . $headerTag . '>';
-			}
-
-			echo $module->content;
-		echo '</' . $moduleTag . '>';
-	}
-}
-function modChrome_fi6frontendshowNocolor($module, &$params, &$attribs)
-{
-	$moduleTag     = $params->get('module_tag', 'div');
-	$bootstrapSize = (int) $params->get('bootstrap_size', 0);
-	$moduleClass   = $bootstrapSize != 0 ? 'small-12 large-' . $bootstrapSize.' columns' : '';
-	$headerTag     = htmlspecialchars($params->get('header_tag', 'h3'));
-	$headerClass   = htmlspecialchars($params->get('header_class', 'text-center'));
-
-	if ($module->content)
-	{
-		echo '<' . $moduleTag . ' class="' . $moduleClass . '">';
-
-			if ($module->showtitle)
-			{
-				echo '<' . $headerTag . ' class="' . $headerClass . '" itemprop="alternativeHealine">' . $module->title . '</' . $headerTag . '><hr class="smallers-color" />';
-			}
-
-			echo '<div class="row">'.$module->content.'</div>';
-		echo '</' . $moduleTag . '>';
-	}
-}
-function modChrome_fi6frontendshowYescolor($module, &$params, &$attribs)
-{
-	$moduleTag     = $params->get('module_tag', 'div');
-	$bootstrapSize = (int) $params->get('bootstrap_size', 0);
-	$moduleClass   = $bootstrapSize != 0 ? 'small-12 large-' . $bootstrapSize.' columns' : '';
-	$headerTag     = htmlspecialchars($params->get('header_tag', 'h3'));
-	$headerClass   = htmlspecialchars($params->get('header_class', 'text-center'));
-
-	if ($module->content)
-	{
-		echo '<' . $moduleTag . ' class="' . $moduleClass . '">';
-
-			if ($module->showtitle)
-			{
-				echo '<' . $headerTag . ' class="' . $headerClass . '" itemprop="alternativeHealine">' . $module->title . '</' . $headerTag . '><hr class="smallers" />';
-			}
-
-			echo '<div class="row">'.$module->content.'</div>';
-		echo '</' . $moduleTag . '>';
-	}
-}
-function modChrome_fi6FooterShow($module, &$params, &$attribs)
-{
-	$moduleTag     = $params->get('module_tag', 'div');
-	$bootstrapSize = (int) $params->get('bootstrap_size', 0);
-	$moduleClass   = $bootstrapSize != 0 ? 'small-12 large-' . $bootstrapSize.' columns' : '';
-	$headerTag     = htmlspecialchars($params->get('header_tag', 'h3'));
-	$headerClass   = htmlspecialchars($params->get('header_class', 'text-center'));
-
-	if ($module->content)
-	{
-		echo '<' . $moduleTag . ' class="' . $moduleClass . '">';
-
-			if ($module->showtitle)
-			{
-				echo '<' . $headerTag . ' class="' . $headerClass . '">' . $module->title . '</' . $headerTag . '>';
-			}
-
-			echo $module->content;
-		echo '</' . $moduleTag . '>';
-	}
-}
-
-/******************MetroUI***********************/
-function modChrome_muiwithtitlehead($module, &$params, &$attribs)
-{
-	$moduleTag     = $params->get('module_tag', 'div');
-	$bootstrapSize = (int) $params->get('bootstrap_size', 0);
-	$moduleClass   = $bootstrapSize != 0 ? 'cells' . $bootstrapSize : '';
-	$headerTag     = htmlspecialchars($params->get('header_tag', 'h3'));
-	$headerClass   = htmlspecialchars($params->get('header_class', 'text-center'));
-
-	if ($module->content)
-	{
-		echo '<' . $moduleTag . ' class="' . $moduleClass . '">';
-
-			if ($module->showtitle)
-			{
-				echo '<' . $headerTag . ' class="' . $headerClass . '">' . $module->title . '</' . $headerTag . '>';
-			}
-
-			echo $module->content;
-		echo '</' . $moduleTag . '>';
-	}
-}
-function modChrome_muifrontendshowNocolor($module, &$params, &$attribs)
-{
-	$moduleTag     = $params->get('module_tag', 'div');
-	$bootstrapSize = (int) $params->get('bootstrap_size', 0);
-	$moduleClass   = $bootstrapSize != 0 ? 'cells' . $bootstrapSize : '';
-	$headerTag     = htmlspecialchars($params->get('header_tag', 'h3'));
-	$headerClass   = htmlspecialchars($params->get('header_class', 'text-center'));
-
-	if ($module->content)
-	{
-		echo '<' . $moduleTag . ' class="' . $moduleClass . '">';
-
-			if ($module->showtitle)
-			{
-				echo '<' . $headerTag . ' class="' . $headerClass . '" itemprop="alternativeHealine">' . $module->title . '</' . $headerTag . '><hr class="smallers-color" />';
-			}
-
-			echo '<div class="row">'.$module->content.'</div>';
-		echo '</' . $moduleTag . '>';
-	}
-}
-function modChrome_muifrontendshowYescolor($module, &$params, &$attribs)
-{
-	$moduleTag     = $params->get('module_tag', 'div');
-	$bootstrapSize = (int) $params->get('bootstrap_size', 0);
-	$moduleClass   = $bootstrapSize != 0 ? 'cells' . $bootstrapSize : '';
-	$headerTag     = htmlspecialchars($params->get('header_tag', 'h3'));
-	$headerClass   = htmlspecialchars($params->get('header_class', 'text-center'));
-
-	if ($module->content)
-	{
-		echo '<' . $moduleTag . ' class="' . $moduleClass . '">';
-
-			if ($module->showtitle)
-			{
-				echo '<' . $headerTag . ' class="' . $headerClass . '" itemprop="alternativeHealine">' . $module->title . '</' . $headerTag . '><hr class="smallers" />';
-			}
-
-			echo '<div class="row">'.$module->content.'</div>';
-		echo '</' . $moduleTag . '>';
-	}
-}
-function modChrome_muiFooterShow($module, &$params, &$attribs)
-{
-	$moduleTag     = $params->get('module_tag', 'div');
-	$bootstrapSize = (int) $params->get('bootstrap_size', 0);
-	$moduleClass   = $bootstrapSize != 0 ? 'cells' . $bootstrapSize : '';
-	$headerTag     = htmlspecialchars($params->get('header_tag', 'h3'));
-	$headerClass   = htmlspecialchars($params->get('header_class', 'text-center'));
-
-	if ($module->content)
-	{
-		echo '<' . $moduleTag . ' class="' . $moduleClass . '">';
-
-			if ($module->showtitle)
-			{
-				echo '<' . $headerTag . ' class="' . $headerClass . '">' . $module->title . '</' . $headerTag . '>';
-			}
-
-			echo $module->content;
+			echo '<hr class="hidden-md hidden-lg hidden-sm">';
 		echo '</' . $moduleTag . '>';
 	}
 }
