@@ -140,8 +140,6 @@
 						<option value="boostrap3-component">Boostrap V3.3.6 (Component)</option>
 						<option value="boostrap4-home">Boostrap V4.x (Home) = Nothing</option>
 						<option value="boostrap4-component">Boostrap V4.x (Component) = Nothing</option>
-						<!--<option value="amp-home">AMP (Home)Pending</option>
-						<option value="amp-component">AMP (Component)Pending</option>-->
 				</field>
 				<field name="groups-script"
 					type="list"
