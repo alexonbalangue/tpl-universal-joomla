@@ -56,63 +56,31 @@
 		<position>bs3-footer2</position>
 		<position>bs3-footer3</position>
 		<position>bs3-footer4</position>
-	<!-- amp - home -->
-		<position>amp-portfolio</position>
-		<position>amp-information</position>
-		<position>amp-download</position>
-		<position>amp-project</position>
-		<position>amp-boutique</position>
-		<position>amp-translator</position>
-		<position>amp-breadcrumb</position>
-		<position>amp-translator</position>
-		<position>amp-login</position>
-		<position>amp-subscribe</position>
-		<position>amp-contact</position>
-		<position>amp-payment</position>
-		<position>amp-footer1</position>
-		<position>amp-footer2</position>
-		<position>amp-footer3</position>
-		<position>amp-footer4</position>
-	<!-- Foundation - home -->
-		<position>fi-portfolio</position>
-		<position>fi-information</position>
-		<position>fi-download</position>
-		<position>fi-project</position>
-		<position>fi-boutique</position>
-		<position>fi-translator</position>
-		<position>fi-breadcrumb</position>
-		<position>fi-translator</position>
-		<position>fi-login</position>
-		<position>fi-subscribe</position>
-		<position>fi-contact</position>
-		<position>fi-payment</position>
-		<position>fi-footer1</position>
-		<position>fi-footer2</position>
-		<position>fi-footer3</position>
-		<position>fi-footer4</position>
-	<!-- MetroUI - home -->
-		<position>mui-portfolio</position>
-		<position>mui-information</position>
-		<position>mui-download</position>
-		<position>mui-project</position>
-		<position>mui-boutique</position>
-		<position>mui-translator</position>
-		<position>mui-breadcrumb</position>
-		<position>mui-translator</position>
-		<position>mui-login</position>
-		<position>mui-subscribe</position>
-		<position>mui-contact</position>
-		<position>mui-payment</position>
-		<position>mui-footer1</position>
-		<position>mui-footer2</position>
-		<position>mui-footer3</position>
-		<position>mui-footer4</position>
+	<!-- Boostrap4 - home -->
+		<position>bs4-portfolio</position>
+		<position>bs4-information</position>
+		<position>bs4-download</position>
+		<position>bs4-project</position>
+		<position>bs4-boutique</position>
+		<position>bs4-translator</position>
+		<position>bs4-breadcrumb</position>
+		<position>bs4-translator</position>
+		<position>bs4-login</position>
+		<position>bs4-subscribe</position>
+		<position>bs4-contact</position>
+		<position>bs4-payment</position>
+		<position>bs4-footer1</position>
+		<position>bs4-footer2</position>
+		<position>bs4-footer4</position>
+		<position>bs4-footer4</position>
 	<!-- base and advestising -->
 		<position>universal_menu</position>
 		<position>banner-footer</position>
 		<position>banner-mfooter</position>
 		<position>banner-header</position>
 		<position>banner-mheader</position>
+		<position>banner-sidebar</position>
+		<position>banner-msidebar</position>
 		<position>sidebar-right</position>
 		<position>sidebar-left</position>
 		<position>footer</position>
@@ -143,20 +111,18 @@
 				</field>
 				<field name="groups-script"
 					type="list"
-					default="boostrap3"
+					default="custom"
 					label="TPL_UNIVERSAL_METHODSCRIPT_LABEL"
 					description="TPL_UNIVERSAL_METHODSCRIPT_DESC">
 						<option value="custom">Personnaliser</option>
-						<option value="">Production TPL color - </option>
-						<option value="">Production TPL color - </option>
-						<option value="">Production TPL color - </option>
-						<option value="">Production TPL color - </option>
-						<option value="">Production TPL color - </option>
-						<option value="">Production TPL color - </option>
-						<option value="">Production TPL color - </option>
-						<option value="">Production TPL color - </option>
-						<option value="">Production TPL color - </option>
-						<option value="">Production TPL color - </option>
+						<option value="blue">Production TPL color blue </option>
+						<option value="default">Production TPL color default </option>
+						<option value="green">Production TPL color green </option>
+						<option value="marsala">Production TPL color marsala </option>
+						<option value="red">Production TPL color red </option>
+						<option value="turquoise">Production TPL color turquoise </option>
+						<option value="violet">Production TPL color violet </option>
+						<option value="pink">Production TPL color pink </option>
 				</field>
 				<field name="groups-method"
 					type="list"
@@ -207,16 +173,17 @@
 					label="TPL_UNIVERSAL_SKILLS_DESC"
 					description="TPL_UNIVERSAL_SKILLS_DESC"
 					filter="string" />			
-				<field name="homme_femme"  type="list" default=""
-					label="TPL_UNIVERSAL_MR_MRS_LABEL"
-					description="TPL_UNIVERSAL_MR_MRS_DESC">
-						<option value="">Choix/Choose</option>
-						<option value="Mr.">Mister (english)</option>
-						<option value="Mrs.">madam (english)</option>
-						<option value="Ms.">Miss (english)</option>
-						<option value="M.">Monsieur (French)</option>
-						<option value="Mme.">Madame (French)</option>
-						<option value="Mlle.">Mademoiselle (French)</option>
+			</fieldset>
+			<fieldset name="TPLs" label="Templates show">
+				<field 
+					name="var"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="0"
+					label="not yet"
+					description="TPL_UNIVERSAL_XXX0X_DESC">
+						<option value="1">JYes</option>
+						<option value="0">JNo</option>
 				</field>
 			</fieldset>
 		</fields>
