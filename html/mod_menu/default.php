@@ -18,7 +18,7 @@ if (($tagId = $params->get('tag_id', '')))
 
 // The menu class is deprecated. Use nav instead
 ?>
-<ul class="nav navbar-nav<?php echo $class_sfx; ?>"<?php echo $id; ?>>
+<ul class="nav navbar-nav navbar-right"<?php echo $id; ?>>
 <?php foreach ($list as $i => &$item)
 {
 	$class = 'item-' . $item->id;
@@ -48,7 +48,7 @@ if (($tagId = $params->get('tag_id', '')))
 		}
 		elseif (in_array($aliasToId, $path))
 		{
-			$class .= ' dropdown';
+			$class .= ' active alias';
 		}
 	}
 
@@ -59,7 +59,13 @@ if (($tagId = $params->get('tag_id', '')))
 
 	if ($item->deeper)
 	{
-		$class .= ' deeper';
+		if ($item->level > 1){
+			$class .= ' dropdown use-yamm yamm-fw';
+		} else {
+			$class .= ' deeper dropdown';
+		}
+		
+		
 	}
 
 	if ($item->parent)
