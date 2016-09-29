@@ -179,7 +179,7 @@ function modChrome_bs3FooterShow($module, &$params, &$attribs)
 	$moduleTag     = $params->get('module_tag', 'div');
 	$bootstrapSize = (int) $params->get('bootstrap_size', 0);
 	$moduleClass   = $bootstrapSize != 0 ? 'col-xs-12 col-sm-6 col-md-' . $bootstrapSize . ' col-lg-' . $bootstrapSize : '';
-	$headerTag     = htmlspecialchars($params->get('header_tag', 'h3'));
+	$headerTag     = htmlspecialchars($params->get('header_tag', 'h4'));
 	$headerClass   = htmlspecialchars($params->get('header_class', 'text-center'));
 
 	if ($module->content)

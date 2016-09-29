@@ -2,7 +2,7 @@
 <extension version="3.6" type="template" client="site" method="upgrade">
 	<name>universal</name>
 	<version>1.0</version>
-	<creationDate>September, 23th 2016</creationDate>
+	<creationDate>September, 29th 2016</creationDate>
 	<author>Alexon Balangue</author>
 	<authorUrl>www.alexonbalangue.me</authorUrl>
 	<authorEmail>moi.sites@alexonbalangue.me</authorEmail>
@@ -31,8 +31,6 @@
 		<position>bs2-translator</position>
 		<position>bs2-breadcrumb</position>
 		<position>bs2-translator</position>
-		<position>bs2-login-left</position>
-		<position>bs2-login-right</position>
 		<position>bs2-contact</position>
 		<position>bs2-payment</position>
 		<position>bs2-footer1</position>
@@ -48,7 +46,6 @@
 		<position>bs3-translator</position>
 		<position>bs3-breadcrumb</position>
 		<position>bs3-translator</position>
-		<position>bs3-login</position>
 		<position>bs3-subscribe</position>
 		<position>bs3-contact</position>
 		<position>bs3-payment</position>
@@ -65,7 +62,6 @@
 		<position>bs4-translator</position>
 		<position>bs4-breadcrumb</position>
 		<position>bs4-translator</position>
-		<position>bs4-login</position>
 		<position>bs4-subscribe</position>
 		<position>bs4-contact</position>
 		<position>bs4-payment</position>
@@ -75,6 +71,11 @@
 		<position>bs4-footer4</position>
 	<!-- base and advestising -->
 		<position>universal_menu</position>
+		<position>sideshow-part1</position>
+		<position>sideshow-part2</position>
+		<position>sideshow-part3</position>
+		<position>search-top</position>
+		<position>login-top</position>
 		<position>banner-footer</position>
 		<position>banner-mfooter</position>
 		<position>banner-header</position>
@@ -83,6 +84,7 @@
 		<position>banner-msidebar</position>
 		<position>sidebar-right</position>
 		<position>sidebar-left</position>
+		<position>breadcrumb</position>
 		<position>footer</position>
 		<position>referencer</position>
 		<position>debug</position>
@@ -114,15 +116,15 @@
 					default="custom"
 					label="TPL_UNIVERSAL_METHODSCRIPT_LABEL"
 					description="TPL_UNIVERSAL_METHODSCRIPT_DESC">
-						<option value="custom">Personnaliser</option>
-						<option value="blue">Production TPL color blue </option>
-						<option value="default">Production TPL color default </option>
-						<option value="green">Production TPL color green </option>
-						<option value="marsala">Production TPL color marsala </option>
-						<option value="red">Production TPL color red </option>
-						<option value="turquoise">Production TPL color turquoise </option>
-						<option value="violet">Production TPL color violet </option>
-						<option value="pink">Production TPL color pink </option>
+						<option value="custom">TPL_UNIVERSAL_METHODSCRIPT_CUSTOM</option>
+						<option value="blue">TPL_UNIVERSAL_METHODSCRIPT_BLUE</option>
+						<option value="default">TPL_UNIVERSAL_METHODSCRIPT_DEFAULT</option>
+						<option value="green">TPL_UNIVERSAL_METHODSCRIPT_GREEN</option>
+						<option value="marsala">TPL_UNIVERSAL_METHODSCRIPT_MARSALA</option>
+						<option value="red">TPL_UNIVERSAL_METHODSCRIPT_RED</option>
+						<option value="turquoise">TPL_UNIVERSAL_METHODSCRIPT_TURQUOISE</option>
+						<option value="violet">TPL_UNIVERSAL_METHODSCRIPT_VIOLET</option>
+						<option value="pink">TPL_UNIVERSAL_METHODSCRIPT_PINK</option>
 				</field>
 				<field name="groups-method"
 					type="list"
@@ -152,38 +154,36 @@
 					label="TPL_UNIVERSAL_HIDEJSDEFAULT_LABEL"
 					description="TPL_UNIVERSAL_HIDEJSDEFAULT_DESC">
 						<option value="">Keep default</option>
-						<option value="home">home</option>
+						<option value="home">home/accueil</option>
 						<option value="component">Component</option>
-				</field>
-				<field name="ampHTMLbeta"
-					type="radio"
-					class="btn-group btn-group-yesno"
-					default="0"
-					label="not yet"
-					description="TPL_UNIVERSAL_XXXX_DESC">
-						<option value="1">JYes</option>
-						<option value="0">JNo</option>
 				</field>
 			</fieldset>
 			<fieldset name="TPLuniversal" label="Edit templates">
 				<field name="logoFile" class="" type="media" default=""
 					label="TPL_UNIVERSAL_LOGO_LABEL"
-					description="TPL_UNIVERSAL_LOGO_LABEL" />
-				<field name="myskills"  type="text" default=""
-					label="TPL_UNIVERSAL_SKILLS_DESC"
-					description="TPL_UNIVERSAL_SKILLS_DESC"
-					filter="string" />			
+					description="TPL_UNIVERSAL_LOGO_LABEL" />			
 			</fieldset>
 			<fieldset name="TPLs" label="Templates show">
+				<field name="sfb"  type="text" default=""
+					label="Facebook"
+					filter="string" />	
+				<field name="stwitt"  type="text" default=""
+					label="Twitter"
+					filter="string" />	
+				<field name="sgplus"  type="text" default=""
+					label="Google Plus"
+					filter="string" />	
+				<field name="smail"  type="text" default=""
+					label="Email"
+					filter="string" />	
 				<field 
-					name="var"
+					name="headshow"
 					type="radio"
 					class="btn-group btn-group-yesno"
 					default="0"
-					label="not yet"
-					description="TPL_UNIVERSAL_XXX0X_DESC">
-						<option value="1">JYes</option>
-						<option value="0">JNo</option>
+					label="Header">
+						<option value="1">Slideshow (Owl Carousel compatible)</option>
+						<option value="0">fixes</option>
 				</field>
 			</fieldset>
 		</fields>
