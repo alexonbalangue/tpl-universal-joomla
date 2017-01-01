@@ -101,8 +101,8 @@ JHtml::_('bootstrap.tooltip');
 				<?php if ($usersConfig->get('allowUserRegistration')) : ?>
 					<a href="<?php echo JRoute::_('index.php?option=com_users&view=registration&Itemid=' . UsersHelperRoute::getRegistrationRoute()); ?>" class="btn btn-default" role="button"><?php echo JText::_('MOD_LOGIN_REGISTER'); ?></a> 
 				<?php endif; ?>
-				<a href="<?php echo JRoute::_('index.php?option=com_users&view=remind&Itemid=' . UsersHelperRoute::getRemindRoute()); ?>" class="btn btn-default"><?php echo JText::_('MOD_LOGIN_FORGOT_YOUR_USERNAME'); ?></a> 
-				<a href="<?php echo JRoute::_('index.php?option=com_users&view=reset&Itemid=' . UsersHelperRoute::getResetRoute()); ?>" class="btn btn-default"><?php echo JText::_('MOD_LOGIN_FORGOT_YOUR_PASSWORD'); ?></a> 
+				<a href="<?php echo JRoute::_('index.php?option=com_users&view=remind&Itemid=' . UsersHelperRoute::getRemindRoute()); ?>" class="btn btn-danger">Identifiant oubliée</a> <br class="hidden-sm hidden-md hidden-lg" />
+				<a href="<?php echo JRoute::_('index.php?option=com_users&view=reset&Itemid=' . UsersHelperRoute::getResetRoute()); ?>" class="btn btn-warning">Mot de passe oubliée</a> 
 			</div>
 		<input type="hidden" name="option" value="com_users" />
 		<input type="hidden" name="task" value="user.login" />

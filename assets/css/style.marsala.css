@@ -1778,6 +1778,9 @@ fieldset[disabled] .btn-template-primary.active {
   background-attachment: fixed;
   background-size: cover;
 }
+.bar.background-image-fixed-ads {
+	background:url(../images/fullpages.jpg) center top no-repeat fixed;background-size:cover
+}
 .bar.color-white h1,
 .bar.color-white h2,
 .bar.color-white h3,
@@ -3554,4 +3557,23 @@ a.list-group-item.active > .badge,
 .yamm .dropdown.yamm-fw .dropdown-menu {
   left: 15px;
   right: 15px;
+}
+.lapresse-list,.projetrealiser-list {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+.lapresse-list li,.projetrealiser-list li {
+    width: 15%;
+}
+.lapresse-list li a img,.projetrealiser-list li a img {
+    height: 75px;
+    border-radius: 5px;
+    display: block;
+    padding: 10px;
+    background: #fff;
+    line-height: 55px;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
 }

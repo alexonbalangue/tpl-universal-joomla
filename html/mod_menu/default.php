@@ -21,7 +21,8 @@ if (($tagId = $params->get('tag_id', '')))
 <ul class="nav navbar-nav navbar-right"<?php echo $id; ?>>
 <?php foreach ($list as $i => &$item)
 {
-	$class = 'item-' . $item->id;
+	$class = '';
+	//$class = 'item-' . $item->id;
 
 	if ($item->id == $default_id)
 	{
@@ -48,7 +49,7 @@ if (($tagId = $params->get('tag_id', '')))
 		}
 		elseif (in_array($aliasToId, $path))
 		{
-			$class .= ' active alias';
+			$class .= ' active';
 		}
 	}
 
@@ -60,9 +61,9 @@ if (($tagId = $params->get('tag_id', '')))
 	if ($item->deeper)
 	{
 		if ($item->level > 1){
-			$class .= ' dropdown use-yamm yamm-fw';
+			$class .= 'dropdown use-yamm yamm-fw';
 		} else {
-			$class .= ' deeper dropdown';
+			$class .= 'dropdown';
 		}
 		
 		
@@ -70,10 +71,11 @@ if (($tagId = $params->get('tag_id', '')))
 
 	if ($item->parent)
 	{
-		$class .= ' parent';
+		$class .= ' active';
 	}
 
-	echo '<li class="' . $class . '">';
+	echo '<li class="' . $class . '">
+		';
 
 	switch ($item->type) :
 		case 'separator':

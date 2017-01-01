@@ -20,7 +20,9 @@ $this->direction = $docs->direction;
 <jdoc:include type="head" />
 </head>
 <body>
-	<jdoc:include type="message" />
-	<jdoc:include type="component" />
+	<div id="all">
+		<jdoc:include type="message" />
+		<jdoc:include type="component" />
+	</div>
 </body>
 </html>

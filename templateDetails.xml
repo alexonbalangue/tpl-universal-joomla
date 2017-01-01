@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.1" encoding="utf-8"?>
 <extension version="3.6" type="template" client="site" method="upgrade">
 	<name>universal</name>
-	<version>1.0</version>
-	<creationDate>September, 29th 2016</creationDate>
+	<version>1.2</version>
+	<creationDate>January, 1st 2016</creationDate>
 	<author>Alexon Balangue</author>
 	<authorUrl>www.alexonbalangue.me</authorUrl>
 	<authorEmail>moi.sites@alexonbalangue.me</authorEmail>
@@ -23,52 +23,33 @@
 		<folder>language</folder>
 	</files>
 	<positions>
-		<position>bs2-portfolio</position>
-		<position>bs2-information</position>
-		<position>bs2-download</position>
-		<position>bs2-project</position>
-		<position>bs2-boutique</position>
-		<position>bs2-translator</position>
-		<position>bs2-breadcrumb</position>
-		<position>bs2-translator</position>
-		<position>bs2-contact</position>
-		<position>bs2-payment</position>
-		<position>bs2-footer1</position>
-		<position>bs2-footer2</position>
-		<position>bs2-footer3</position>
-		<position>bs2-footer4</position>
 	<!-- Boostrap3 - home -->
-		<position>bs3-portfolio</position>
-		<position>bs3-information</position>
-		<position>bs3-download</position>
-		<position>bs3-project</position>
-		<position>bs3-boutique</position>
-		<position>bs3-translator</position>
-		<position>bs3-breadcrumb</position>
-		<position>bs3-translator</position>
-		<position>bs3-subscribe</position>
-		<position>bs3-contact</position>
+		<position>bs3-artisan</position>
+		<position>bs3-projet-realiser</position>
+		<position>bs3-demandedevis</position>
+		<position>bs3-lapresse</position>
+		<position>bs3-associatif</position>
+		<position>bs3-logleft</position>
+      <position>bs3-team</position>
+		<position>final-bannermembers</position>
+		<position>bs3-logright</position>
 		<position>bs3-payment</position>
 		<position>bs3-footer1</position>
 		<position>bs3-footer2</position>
 		<position>bs3-footer3</position>
 		<position>bs3-footer4</position>
-	<!-- Boostrap4 - home -->
-		<position>bs4-portfolio</position>
-		<position>bs4-information</position>
-		<position>bs4-download</position>
-		<position>bs4-project</position>
-		<position>bs4-boutique</position>
-		<position>bs4-translator</position>
-		<position>bs4-breadcrumb</position>
-		<position>bs4-translator</position>
-		<position>bs4-subscribe</position>
-		<position>bs4-contact</position>
-		<position>bs4-payment</position>
-		<position>bs4-footer1</position>
-		<position>bs4-footer2</position>
-		<position>bs4-footer4</position>
-		<position>bs4-footer4</position>
+	<!-- Boostrap3 - home - Config final -->
+		<position>final-information</position>
+		<position>final-specialite</position>
+		<position>final-realisation</position>
+		<position>final-coinpresse</position>
+		<position>final-communaute</position>
+		<position>final-siegesocial</position>
+		<position>final-promotion</position>
+		<position>final-avisclients</position>
+		<position>final-accessclients</position>
+		<position>final-zoneseffectif</position>
+      	<position>final-confiances</position>
 	<!-- base and advestising -->
 		<position>universal_menu</position>
 		<position>sideshow-part1</position>
@@ -76,6 +57,7 @@
 		<position>sideshow-part3</position>
 		<position>search-top</position>
 		<position>login-top</position>
+		<position>register-top</position>
 		<position>banner-footer</position>
 		<position>banner-mfooter</position>
 		<position>banner-header</position>
@@ -125,6 +107,7 @@
 						<option value="turquoise">TPL_UNIVERSAL_METHODSCRIPT_TURQUOISE</option>
 						<option value="violet">TPL_UNIVERSAL_METHODSCRIPT_VIOLET</option>
 						<option value="pink">TPL_UNIVERSAL_METHODSCRIPT_PINK</option>
+						<option value="yellow">TPL_UNIVERSAL_METHODSCRIPT_YELLOW</option>
 				</field>
 				<field name="groups-method"
 					type="list"
@@ -161,36 +144,17 @@
 			<fieldset name="TPLuniversal" label="Edit templates">
 				<field name="logoFile" class="" type="media" default=""
 					label="TPL_UNIVERSAL_LOGO_LABEL"
-					description="TPL_UNIVERSAL_LOGO_LABEL" />			
-			</fieldset>
-			<fieldset name="TPLs" label="Templates show">
-				<field name="sfb"  type="text" default=""
-					label="Facebook"
-					filter="string" />	
-				<field name="stwitt"  type="text" default=""
-					label="Twitter"
-					filter="string" />	
-				<field name="sgplus"  type="text" default=""
-					label="Google Plus"
-					filter="string" />	
-				<field name="smail"  type="text" default=""
-					label="Email"
-					filter="string" />	
-				<field 
-					name="headshow"
-					type="radio"
-					class="btn-group btn-group-yesno"
-					default="0"
-					label="Header">
-						<option value="1">Slideshow (Owl Carousel compatible)</option>
-						<option value="0">fixes</option>
-				</field>
+					description="TPL_UNIVERSAL_LOGO_LABEL" />	
+				<field name="logoMobFile" class="" type="media" default=""
+					label="TPL_UNIVERSAL_LOGOMOB_LABEL"
+					description="TPL_UNIVERSAL_LOGOMOB_LABEL" />			
 			</fieldset>
 		</fields>
 	</config>
-
+<!--
 	<updateservers>
 		<server type="collection" priority="1" name="Accredited by Alexon Balangue">https://jupdates.alexonbalangue.me/update/joomla/general.xml</server>
 		<server type="extension" priority="2" name="TPL - universal">https://jupdates.alexonbalangue.me/update/joomla/xml/tpl_universal.xml</server>
 	</updateservers>
+	//-->
 </extension>
